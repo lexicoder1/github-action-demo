@@ -33,7 +33,10 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.EC2_SSH_KEY }}
-          script: sudo docker build -t lexi . 
+          script: |
+            git clone https://github.com/lexicoder1/github-action-demo.git
+            cd github-action-demo
+            sudo docker build -t lexi . 
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
